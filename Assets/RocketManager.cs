@@ -8,6 +8,7 @@ public class RocketManager : MonoBehaviour
     public GameObject rocketBoost;
     public GameObject parachute;
     public Rigidbody2D rocketRb;
+    public float mass = 6e+14f;
 
 
     bool leftClickPressedOnce = false;

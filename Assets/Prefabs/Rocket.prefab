@@ -158,6 +158,7 @@ MonoBehaviour:
   rocketBoost: {fileID: 7342138049740439702}
   parachute: {fileID: 6521635921385904997}
   rocketRb: {fileID: 0}
+  mass: 3000
 --- !u!1 &6521635921385904997
 GameObject:
   m_ObjectHideFlags: 0

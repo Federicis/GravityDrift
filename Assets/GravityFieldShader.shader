@@ -52,7 +52,7 @@ Shader "Custom/GradientCircleShader"
                 float ratio = saturate(distanceFromCenter / _Radius);
 
                 fixed4 color = lerp(_CenterColor, _OuterColor, ratio);
-                color.a = 0.32;
+                //color.a = 0.32;
                 return color;
             }
             ENDCG
