@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6279647301859651285}
   - component: {fileID: 5571244976431033302}
+  - component: {fileID: 5219781361797401111}
   m_Layer: 3
   m_Name: GravityField2
   m_TagString: Untagged
@@ -26,9 +27,9 @@ Transform:
   m_GameObject: {fileID: 5132685407631620798}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 0.0001, y: -0.0087, z: 0}
+  m_LocalScale: {x: 0.16908814, y: 0.1693845, z: 0}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7971225736793596593}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -84,6 +85,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5219781361797401111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5132685407631620798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d088aa9dca83c74f953c5d111d4e651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planet: {fileID: 0}
 --- !u!1 &6071771076981494558
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,7 +126,7 @@ Transform:
   m_GameObject: {fileID: 6071771076981494558}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.445, y: 0.376, z: 0}
+  m_LocalPosition: {x: 1.41, y: -0.42, z: 0}
   m_LocalScale: {x: 1.139588, y: 1.1655717, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -1,20 +1,21 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Image))]
 public class GravityField : MonoBehaviour
 {
-    public Color centerColor = Color.black;
-    public Color outerColor = Color.white;
-    public float radius = 100f;
+    public GravityBody planet;
+    private float scale_constant = 0.1690881f;
 
     private void Start()
     {
-        
-    }
+        planet = transform.parent.GetComponent<GravityBody>();
 
-    private void GenerateGradientCircle()
-    {
-       
+        if (planet == null)
+        {
+            Debug.LogError("Could not acces the planet parent");
+            return;
+        }
+        float radius = planet.maxGravityDistance;
+        transform.localScale = new Vector3 (radius * scale_constant, radius * scale_constant, 1.0f);
     }
 }

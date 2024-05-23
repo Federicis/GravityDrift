@@ -3,8 +3,8 @@ Shader "Custom/GradientCircleShader"
     Properties
     {
         _MainTex("Dummy Texture", 2D) = "white" {}
-        _CenterColor("Center Color", Color) = (0, 0, 0, 1)
-        _OuterColor("Outer Color", Color) = (1, 1, 1, 1)
+        _CenterColor("Center Color", Color) = (0, 0, 0, 0.32)
+        _OuterColor("Outer Color", Color) = (1, 1, 1, 0.32)
         _Radius("Radius", Float) = 0.5
     }
 
@@ -52,6 +52,7 @@ Shader "Custom/GradientCircleShader"
                 float ratio = saturate(distanceFromCenter / _Radius);
 
                 fixed4 color = lerp(_CenterColor, _OuterColor, ratio);
+                color.a = 0.32;
                 return color;
             }
             ENDCG
