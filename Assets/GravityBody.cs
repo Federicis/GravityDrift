@@ -27,6 +27,7 @@ public class GravityBody : MonoBehaviour
 
     private void Start()
     {
+        rocket = GameObject.Find("Rocket");
         rocketRb = rocket.GetComponent<Rigidbody2D>();
         rocketManager = rocket.GetComponent<RocketManager>();
         rocketMass = rocketManager.mass;
