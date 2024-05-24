@@ -6,6 +6,13 @@ using UnityEngine.SceneManagement;
 public class RocketHitsPlanetDetector : MonoBehaviour
 {
     string loseSceneName = "YouLoseScene";
+
+    private SceneChangeManager sceneChangeManager;
+
+    private void Start()
+    {
+        sceneChangeManager = GameObject.FindObjectOfType<SceneChangeManager>();
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("RIP");
@@ -19,7 +26,7 @@ public class RocketHitsPlanetDetector : MonoBehaviour
 
     private IEnumerator LoadSceneAsync()
     {
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(loseSceneName);
+        AsyncOperation asyncOperation = sceneChangeManager.LoadSceneAsync(loseSceneName);
         asyncOperation.allowSceneActivation = false;
         while (!asyncOperation.isDone)
         {

@@ -7,15 +7,18 @@ using UnityEngine.UI;
 public class RestartButton : MonoBehaviour
 {
     private Button button;
-    private string gameSceneName = "GameScene";
+    private SceneChangeManager sceneChangeManager;
     void Start()
     {
         button = GetComponent<Button>();
-        button.onClick.AddListener(RestartGame);
+        sceneChangeManager = GameObject.FindObjectOfType<SceneChangeManager>();
     }
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(gameSceneName);
+        if (!SceneManager.GetActiveScene().name.StartsWith("Level"))
+            sceneChangeManager.LoadScene(sceneChangeManager.GetPreviousSceneName());
+        else
+            sceneChangeManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

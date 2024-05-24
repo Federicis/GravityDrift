@@ -12,6 +12,13 @@ public class FinishGame : MonoBehaviour
 
     public GameObject audioPlayerPrefab;
 
+    public SceneChangeManager sceneChangeManager;
+
+    private void Start()
+    {
+        sceneChangeManager = GameObject.FindObjectOfType<SceneChangeManager>();
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag(targetTag))
@@ -48,7 +55,7 @@ public class FinishGame : MonoBehaviour
 
     private IEnumerator LoadSceneAsync()
     {
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(winSceneName);
+        AsyncOperation asyncOperation = sceneChangeManager.LoadSceneAsync(winSceneName);
         asyncOperation.allowSceneActivation = false;
         while (!asyncOperation.isDone)
         {
