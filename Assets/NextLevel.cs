@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,26 +9,27 @@ public class NextLevel : MonoBehaviour
 {
 
     SceneChangeManager sceneChangeManager;
+    public string lastLevel = "Level2";
     // Start is called before the first frame update
     void Start()
     {
         sceneChangeManager = GameObject.FindObjectOfType<SceneChangeManager>();
-        gameObject.SetActive(sceneChangeManager.GetPreviousSceneName() != "Level2");
+        gameObject.SetActive(sceneChangeManager.GetPreviousSceneName() != lastLevel);
     }
 
     public void LoadNextLevel()
     {
         string lastLevel = sceneChangeManager.GetPreviousSceneName();
-        char lastLevelNumberChar = lastLevel[lastLevel.Length - 1];
+        string lastLevelNumberChar = lastLevel.Substring(5); // ignores the 'Level' part of the string
         int currentLevelNumber = 0;
 
-        if (char.IsDigit(lastLevelNumberChar))
+        try
         {
-            currentLevelNumber = int.Parse(lastLevelNumberChar.ToString()) + 1;
-        } else
+            currentLevelNumber = Int32.Parse(lastLevelNumberChar.ToString());
+        } catch
         {
             Debug.Log("Last level has no number?");
         }
-        sceneChangeManager.LoadScene("Level" + currentLevelNumber.ToString());
+        sceneChangeManager.LoadScene("Level" + (currentLevelNumber + 1).ToString());
     }
 }
