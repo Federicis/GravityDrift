@@ -11,16 +11,8 @@ public class SceneChangeManager : MonoBehaviour
 
     void Awake()
     {
-        // Ensure there's only one instance of this object
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public string GetPreviousSceneName()
