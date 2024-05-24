@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &3374942 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3059481609214988934, guid: a8d286e0576c9bd468d8ba589c343942, type: 3}
+  m_PrefabInstance: {fileID: 1455618939}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &268430384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -812,6 +817,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4170875600470099441, guid: a8d286e0576c9bd468d8ba589c343942, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1648292060}
+    - target: {fileID: 4170875600470099441, guid: a8d286e0576c9bd468d8ba589c343942, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseOptions
+      objectReference: {fileID: 0}
     - target: {fileID: 5465588281341246249, guid: a8d286e0576c9bd468d8ba589c343942, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -900,6 +913,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8425307096105497647, guid: a8d286e0576c9bd468d8ba589c343942, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1648292059}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1274,9 +1291,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 462e741b93ed6b844bd44e0cc8705632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameScene: GameScene
-  optionsScreen: {fileID: 0}
-  audioSource: {fileID: 0}
+  gameScene: Level
+  optionsScreen: {fileID: 3374942}
+  audioSource: {fileID: 1648292059}
 --- !u!1001 &1835841844
 PrefabInstance:
   m_ObjectHideFlags: 0
