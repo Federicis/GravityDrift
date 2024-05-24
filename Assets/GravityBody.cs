@@ -34,7 +34,6 @@ public class GravityBody : MonoBehaviour
         calculate_radius();
         calculate_mass();
         maxGravityDistance = math.sqrt(K * mass * rocketMass/min_force);
-        Debug.Log("Max gr dist: " + maxGravityDistance / base_radius);
         started = true;
     }
 
@@ -48,13 +47,10 @@ public class GravityBody : MonoBehaviour
 
         if (dist > maxGravityDistance)
         {
-            Debug.Log("returned");
             return;
         }
 
         Vector3 v = transform.position - rocket.transform.position;
-
-        Debug.Log("actual force: " + (K*mass*rocketMass/(dist*dist)));
 
         rocketRb.AddForce(K*mass*rocketMass/(dist*dist)*v.normalized);
         /*        rocketRb.transform.LookAt(rocketRb.velocity, Vector3.forward);
@@ -79,7 +75,6 @@ public class GravityBody : MonoBehaviour
     void calculate_radius()
     {
         radius = transform.localScale.x;
-        Debug.Log("Radius: " + radius); 
     }
 
     float get_volume()

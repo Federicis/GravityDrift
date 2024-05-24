@@ -9,27 +9,29 @@ public class NextLevel : MonoBehaviour
 {
 
     SceneChangeManager sceneChangeManager;
-    public string lastLevel = "Level2";
+    public string stop_level = "Level3";
     // Start is called before the first frame update
     void Start()
     {
         sceneChangeManager = GameObject.FindObjectOfType<SceneChangeManager>();
-        gameObject.SetActive(sceneChangeManager.GetPreviousSceneName() != lastLevel);
+        gameObject.SetActive(sceneChangeManager.GetPreviousSceneName() != stop_level);
     }
 
     public void LoadNextLevel()
     {
         string lastLevel = sceneChangeManager.GetPreviousSceneName();
         string lastLevelNumberChar = lastLevel.Substring(5); // ignores the 'Level' part of the string
-        int currentLevelNumber = 0;
+        int currentLevelNumber = -1;
 
         try
         {
-            currentLevelNumber = Int32.Parse(lastLevelNumberChar.ToString());
+            currentLevelNumber = int.Parse(lastLevelNumberChar.ToString());
         } catch
         {
-            Debug.Log("Last level has no number?");
+            Debug.LogError("Last level has no number?");
         }
+        Debug.Log("Next level: " + (currentLevelNumber+1).ToString());
+        PlayerPrefs.SetInt("current_level", currentLevelNumber + 1);
         sceneChangeManager.LoadScene("Level" + (currentLevelNumber + 1).ToString());
     }
 }

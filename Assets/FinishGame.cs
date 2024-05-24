@@ -14,9 +14,12 @@ public class FinishGame : MonoBehaviour
 
     public SceneChangeManager sceneChangeManager;
 
+    public GameManager gameManager;
+
     private void Start()
     {
         sceneChangeManager = GameObject.FindObjectOfType<SceneChangeManager>();
+        gameManager = GameObject.FindObjectOfType<GameManager>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -27,9 +30,13 @@ public class FinishGame : MonoBehaviour
         }
     }
 
-    void Finish()
+    void Finish() 
     {
         Debug.Log("Game Finished!");
+        
+        PlayerPrefs.SetInt("collected_coins", gameManager.collectedCoins);
+        PlayerPrefs.SetInt("total_coins", gameManager.totalCoins);
+
 
         GameObject audioPlayer = Instantiate(audioPlayerPrefab, transform.position, Quaternion.identity);
 

@@ -30,13 +30,17 @@ public class SceneChangeManager : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
-        previousScene = SceneManager.GetActiveScene().name;
+        Debug.Log(SceneManager.GetActiveScene().name);
+        if (SceneManager.GetActiveScene().name.StartsWith("Level"))
+            previousScene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(sceneName);
     }
 
     public AsyncOperation LoadSceneAsync(string sceneName)
     {
-        previousScene = SceneManager.GetActiveScene().name;
+        Debug.Log(SceneManager.GetActiveScene().name);
+        if (SceneManager.GetActiveScene().name.StartsWith("Level"))
+            previousScene = SceneManager.GetActiveScene().name;
         return SceneManager.LoadSceneAsync(sceneName);
     }
 }
