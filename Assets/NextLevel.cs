@@ -9,7 +9,7 @@ public class NextLevel : MonoBehaviour
 {
 
     SceneChangeManager sceneChangeManager;
-    public string stop_level = "Level3";
+    public string stop_level = "Level5";
     // Start is called before the first frame update
     void Start()
     {
