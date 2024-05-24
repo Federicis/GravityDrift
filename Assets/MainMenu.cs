@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class MainMenu : MonoBehaviour
 {
-    public string gameScene = "GameScene";
+    public string gameScene = "Level";
     public GameObject optionsScreen;
     public AudioSource audioSource;
 
@@ -17,14 +17,14 @@ public class MainMenu : MonoBehaviour
 
     public void StartNewGame()
     {
-        SceneManager.LoadScene(gameScene);
-        PlayerPrefs.SetInt("new_game", 1);
+        PlayerPrefs.SetInt("current_level", 1);
+        SceneManager.LoadScene(gameScene + "1");
     }
 
     public void LoadGame()
     {
-        SceneManager.LoadScene(gameScene);
-        PlayerPrefs.SetInt("new_game", 0);
+        int currentLevel = PlayerPrefs.GetInt("current_level");
+        SceneManager.LoadScene(gameScene + currentLevel.ToString());
     }
 
     public void OpenOptions()

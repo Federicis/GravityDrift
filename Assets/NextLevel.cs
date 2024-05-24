@@ -30,6 +30,7 @@ public class NextLevel : MonoBehaviour
         {
             Debug.Log("Last level has no number?");
         }
+        PlayerPrefs.SetInt("current_level", currentLevelNumber + 1);
         sceneChangeManager.LoadScene("Level" + (currentLevelNumber + 1).ToString());
     }
 }
