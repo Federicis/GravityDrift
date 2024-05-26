@@ -13,10 +13,13 @@ public class GameManager : MonoBehaviour
 
     public int totalCoins = 0;
     public int collectedCoins = 0;
+    private float deltaTime = 0.0f;
 
-    // Start is called before the first frame update
     void Start()
     {
+        Application.targetFrameRate = 60;
+        QualitySettings.vSyncCount = 0; // Disable VSync
+
         rocket = GameObject.Find("Rocket");
         rocketBoost = GameObject.Find("RocketBoost");
         parachute = GameObject.Find("Parachute");
@@ -31,9 +34,8 @@ public class GameManager : MonoBehaviour
         parachute.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
